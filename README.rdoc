@@ -1,8 +1,6 @@
-== README
-
 IT Nihongo sem 3
 
-Pham Duc Minh    - Team leader
+Pham Duc Minh - Team leader
 
 Nguyen Thanh Nga - Sub leader
 
@@ -14,8 +12,6 @@ Nguyen Thanh Luan
 
 Vu Duc Quy
 
-<h1>Rails project</h1>
+Rails project
 
-*Ruby 2.2.0
-*Sqlite
-
+*Ruby 2.2.0 *Sqlite
