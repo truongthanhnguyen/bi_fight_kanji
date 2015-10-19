@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
 gem "rails", "4.2.1"
-gem "sqlite3"
+# gem "sqlite3"
+gem "pg"
 gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.1.0"
@@ -22,6 +23,10 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "devise"
 gem "bootstrap-sass", "~> 3.2.0"
 gem "autoprefixer-rails"
+gem "chartkick"
+gem "groupdate"
+gem "momentjs-rails", ">= 2.9.0"
+gem "bootstrap3-datetimepicker-rails", "~> 4.17.37"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
@@ -32,5 +37,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
+
+  gem "faker"
 end
 

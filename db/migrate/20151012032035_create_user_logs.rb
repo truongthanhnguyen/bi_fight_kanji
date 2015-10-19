@@ -5,6 +5,7 @@ class CreateUserLogs < ActiveRecord::Migration
       t.string :log_type
       t.integer :target
       t.string :log_data
+      t.integer :number_of_word
 
       t.timestamps null: false
     end

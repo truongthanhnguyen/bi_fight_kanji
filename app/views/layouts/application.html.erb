@@ -56,7 +56,7 @@
             <% if current_user.nil? %>
               <%= link_to "Login", new_user_session_path, method: :get %>
             <% else%>
-              <h3>Hi! <%= current_user.email %></h3>
+              Hi! <%= current_user.email %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
             <% end %>
           </li>

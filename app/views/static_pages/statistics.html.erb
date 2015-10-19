@@ -1,0 +1,3 @@
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+<%= line_chart UserLog.group_by_day(:created_at).count %>
