@@ -27,7 +27,6 @@ class UserGoalsController < ApplicationController
   def create
     @user_goal = current_user.user_goals.build
     @user_goal.number_of_words = user_goal_params[:number_of_words]
-    byebug
     @user_goal.deadline = DateTime.strptime(user_goal_params[:deadline], '%m/%d/%Y')
     respond_to do |format|
       if @user_goal.save
