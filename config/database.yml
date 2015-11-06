@@ -9,9 +9,17 @@ default: &default
   pool: 5
   timeout: 5000
 
+default: &default_postgres
+  adapter: postgresql
+  encoding: unicode
+  database: bi_fight_kanji
+  pool: 5
+  username: postgres
+  password: postgres
+
 development:
-  <<: *default
-  database: db/development.sqlite3
+  <<: *default_postgres
+  #database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

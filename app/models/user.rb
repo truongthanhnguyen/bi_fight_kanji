@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   def cancel_request current_user, friend_id
   	Friend.find_by(friend_id: friend_id).destroy
+  end
 
   def self.ransackable_attributes auth_object = nil
     (column_names - ["id","updated_at", "sign_in_count","encrypted_password",
