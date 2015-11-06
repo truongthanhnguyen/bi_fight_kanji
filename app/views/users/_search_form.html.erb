@@ -1,0 +1,8 @@
+<div id="searchDiv" class="form-group">
+<%= search_form_for @search, url: users_path,
+  method: :get do |f| %>
+    <%= f.condition_fields do |c| %>
+      <%= render "condition_fields", f: c %>
+    <% end %>
+<% end %>
+</div>
