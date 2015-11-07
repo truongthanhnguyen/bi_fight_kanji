@@ -1,15 +1,16 @@
 <div>
-  <h3><%= @user.name %></h3>
+  <h3><%= current_user.name %></h3>
 </div>
-<div>
-  <%= @user.email %>
-  <% if (@user.id != current_user.id) %>
-    <% if friend_request_sent @user.id %>
-      <%= button_to "Cancel request", {controller: "users/friend", action: "destroy", friend_id: @user.id}, method: :delete %>
-    <% elsif is_friend @user.id %>
-      <button>Friend</button>
-    <% else %>
-      <%= button_to "Request friends", {controller: "users/friend", action: "create", friend_id: @user.id} %>
-    <% end %>
+
+<div id="friend-request-list" class="containter" >
+  <% @list_requests.each do |request| %>
+  <div class="row">
+    <div class="col-md-8"> 
+      <%= request.user.email %>
+    </div>
+    <div class="col-md-4">
+      <%= button_to "Accept", {controller: "users/friend", action: "update", friend_id: request.user.id}, method: :put %>
+    </div>
+  </div>
   <% end %>
 </div>

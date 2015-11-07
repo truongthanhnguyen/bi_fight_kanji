@@ -5,15 +5,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :user_goals
   has_many :user_logs
-  has_many :friends
+  has_many :active_friend_requests, class_name: "Friend", foreign_key: "user_id"
+  has_many :passive_friend_requests, class_name: "Friend", foreign_key: "friend_id"
 
-  def send_request current_user, friend_id
-  	friend_request = current_user.friends.create friend_id: friend_id, accepted: false
+  def send_request friend_id
+  	friend_request = self.active_friend_requests.create friend_id: friend_id, accepted: false
   	friend_request.save
   end
 
-  def cancel_request current_user, friend_id
-  	Friend.find_by(friend_id: friend_id).destroy
+  def cancel_request friend_id
+  	Friend.find_by(user_id: self.id ,friend_id: friend_id).destroy
+  end
+
+  def change_request_status friend_id
+    friend_record = Friend.find_by user_id: friend_id, friend_id: self.id
+    friend_record.accepted = !friend_record.accepted
+    friend_record.save
   end
 
   def self.ransackable_attributes auth_object = nil
