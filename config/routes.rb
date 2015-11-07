@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   post "users/friend_request" => "users/friend#create"
   
+  delete "users/friend_request" => "users/friend#destroy"
 end

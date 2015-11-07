@@ -8,7 +8,9 @@ class Users::FriendController < ApplicationController
   end
 
   def destroy
-
+    current_user.cancel_request current_user, params[:friend_id]
+    @user = User.find params[:friend_id]
+    redirect_to "/users/#{params[:friend_id]}"
   end
 
 end
