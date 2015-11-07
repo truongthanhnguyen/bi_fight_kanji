@@ -5,11 +5,11 @@
   <%= @user.email %>
   <% if (@user.id != current_user.id) %>
     <% if friend_request_sent @user.id %>
-      <button>Friend request sent</button>
+      <%= button_to "Cancel request", {controller: "users/friend", action: "destroy", friend_id: @user.id}, method: :delete %>
     <% elsif is_friend @user.id %>
       <button>Friend</button>
     <% else %>
-    <%= button_to "Request friends", {controller: "users/friend", action: "create", friend_id: @user.id} %>
+      <%= button_to "Request friends", {controller: "users/friend", action: "create", friend_id: @user.id} %>
     <% end %>
   <% end %>
 </div>
